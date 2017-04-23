@@ -5,9 +5,9 @@ import java.util.Date;
 public class Drinks {
 	
 	private Date dateOfTransaction;
-	private String drinkName;
+	private int drinkName;
 	
-	public Drinks(Date dateOfTransaction, String drinkName){
+	public Drinks(Date dateOfTransaction, int drinkName){
 		this.dateOfTransaction = dateOfTransaction;
 		this.drinkName = drinkName;				
 	}
@@ -16,7 +16,7 @@ public class Drinks {
 		return dateOfTransaction;
 	}
 	
-	public String getDrinkName(){
+	public int getDrinkName(){
 		return drinkName;
 	}
 	
@@ -24,7 +24,7 @@ public class Drinks {
 		this.dateOfTransaction = dateOfTransaction;
 	}
 	
-	public void setAmount(String drinkName){
+	public void setAmount(int drinkName){
 		this.drinkName = drinkName;
 	}
 

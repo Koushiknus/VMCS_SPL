@@ -1,7 +1,14 @@
 package sg.edu.nus.iss.vmcs.customer;
 
-public interface DispenseDrinkDecorator extends DispenseDrinkComponent{
+public class DispenseDrinkDecorator implements DispenseDrinkComponent{
 	
-	public boolean dispenseDrink(int selectedBrand);
+	private DispenseDrinkComponent drinkComponent;
+    public DispenseDrinkDecorator(DispenseDrinkComponent drinkComponent) {
+        this.drinkComponent = drinkComponent;
+    }
+
+    public boolean dispenseDrink(int selectedBrand){
+        return drinkComponent.dispenseDrink(selectedBrand);
+    }
 
 }

@@ -1,8 +1,19 @@
 package sg.edu.nus.iss.vmcs.customer;
 
-public interface CoinReceptionDecorator extends CoinReceptionComponent {
+public class CoinReceptionDecorator implements CoinReceptionComponent {
 	
-	public boolean storeCash();
+	private CoinReceptionComponent coinComponent;
+    public CoinReceptionDecorator(CoinReceptionComponent coinComponent) {
+        this.coinComponent = coinComponent;
+    }
+
+    public boolean storeCash() {
+        return coinComponent.storeCash();
+    }
+    
+    public int getTotalInserted() {
+        return coinComponent.getTotalInserted();
+    }
 	
 
 }
