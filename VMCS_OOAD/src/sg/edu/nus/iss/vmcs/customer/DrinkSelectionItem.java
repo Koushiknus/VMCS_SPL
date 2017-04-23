@@ -36,6 +36,8 @@ public class DrinkSelectionItem extends Panel{
 	private int quantity=0;
 	private boolean isActive=false;
 	private boolean isWarningOn=false;
+	//Change starts here 
+	private  final int stockThreshold = 5;
 	
 	/**
 	 * This constructor creates an instance of the DrinkSelectionItem&#46;
@@ -50,7 +52,18 @@ public class DrinkSelectionItem extends Panel{
 		this.setPrice(drinkPrice);
 		this.setState(isActive);
 		this.setItemState(isWarningOn);
-		init();
+		if(quantity<=0){
+			wnd=new WarningDisplay("Not in Stock");
+			init();
+		}
+		else if(quantity<stockThreshold){
+			wnd=new WarningDisplay(Integer.toString(quantity)+"(Low in Stock)");
+			init();
+		}
+		else{
+			wnd = new WarningDisplay("Available");
+			init();
+		}
 	}
 
 	/**
